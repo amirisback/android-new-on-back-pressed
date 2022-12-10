@@ -31,7 +31,9 @@ class DetailActivity : BaseBindActivity<ActivityDetailBinding>() {
     override fun initView() {
         super.initView()
         binding.apply {
-
+            button.setOnClickListener {
+                onBackPressedExt()
+            }
         }
     }
 
@@ -40,6 +42,11 @@ class DetailActivity : BaseBindActivity<ActivityDetailBinding>() {
         viewModel.apply {
 
         }
+    }
+
+    override fun doOnBackPressedExt() {
+        super.doOnBackPressedExt()
+        Log.d(TAG, "doOnBackPressedExt: Doing On Back Press")
     }
 
 }
