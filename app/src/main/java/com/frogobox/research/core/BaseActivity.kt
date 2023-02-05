@@ -38,12 +38,15 @@ abstract class BaseActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= 33) {
             onBackInvokedDispatcher.registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT) {
                 // Back is pressed... Finishing the activity
+                Log.d(BaseActivity::class.java.simpleName, "Build >= 33")
+                Log.d(BaseActivity::class.java.simpleName, "Back is pressed... Finishing the activity")
                 doOnBackPressedExt()
             }
         } else {
             onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     // Back is pressed... Finishing the activity
+                    Log.d(BaseActivity::class.java.simpleName, "Back is pressed... Finishing the activity")
                     doOnBackPressedExt()
                 }
             })
